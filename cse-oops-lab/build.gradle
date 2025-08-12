@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'application' // For running the application
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+}
+
+group = "jbr.lab"
+version = "1.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = "24.0.1" // Or your desired JavaFX version
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+dependencies {
+
+    implementation("org.openjfx:javafx-controls:17.0.1")
+
+    testImplementation(platform("org.junit:junit-bom:5.10.0"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
